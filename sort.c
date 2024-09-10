@@ -2,6 +2,14 @@
 
 void	sort(t_stack **a, t_stack **b)
 {
+	if (stack_length(*a) == 1)
+		free_and_exit(a, b, 0);
+	if (stack_length(*a) == 2)
+	{
+		if ((*a)->value > (*a)->next->value)
+			sa(a);
+		free_and_exit(a, b, 0);
+	}
 	if (stack_length(*a) > 3)
 		pb(a, b);
 	if (stack_length(*a) > 3)
@@ -10,7 +18,11 @@ void	sort(t_stack **a, t_stack **b)
 		sort_three(a);
 	else
 		sort_algorithm(a, b);
-	push_back(a, b);
+	if (*b != NULL)
+	{
+		order_b(b);
+		push_back(a, b);
+	}
 	order_a(a);
 }
 
@@ -19,19 +31,19 @@ void	sort_algorithm(t_stack **a, t_stack **b)
 	t_stack	*node;
 
 	node = NULL;
-	while (stack_length(a) > 3)
+	while (stack_length(*a) > 3)
 	{
 		give_index(a);
 		give_index(b);
 		calculate_cost(a, b);
-		node = set_cheapest(a, b);
+		node = set_cheapest(a);
 		move(node, a, b);
 	}
 	sort_three(a);
 }
 
 
-int	find_target(t_stack *a, t_stack *b)
+t_stack	*find_target(t_stack *a, t_stack *b)
 {
 	t_stack	*current;
 	t_stack	*best_match;
@@ -49,9 +61,12 @@ int	find_target(t_stack *a, t_stack *b)
 		current = current->next;
 	}
 	if (best_match)
-		return (find_position(b, best_match));
+		return (best_match);
 	else
-		return (find_position(b, (get_biggest_node(b))));
+	{
+		best_match = get_biggest_node(b);
+		return (best_match);
+	}
 }
 
 void	calculate_cost(t_stack **a, t_stack **b)
@@ -76,7 +91,7 @@ void	calculate_cost(t_stack **a, t_stack **b)
 	}
 }
 
-t_stack	*set_cheapest(t_stack **a, t_stack **b)
+t_stack	*set_cheapest(t_stack **a)
 {
 	t_stack	*current;
 	t_stack *cheapest_a;
@@ -90,7 +105,7 @@ t_stack	*set_cheapest(t_stack **a, t_stack **b)
 	while (current)
 	{
 		move = set_move(current);
-		if (move < cheap)
+		if (move < cheapest)
 		{
 			cheapest = move;
 			cheapest_a = current;

@@ -1,9 +1,11 @@
-#ifdef PUSH_SWAP_H
+#ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
 #include <limits.h>
 #include <stddef.h>
 #include <unistd.h>
+#include <stdbool.h>
+#include <stdlib.h>
 
 typedef struct	s_stack
 {
@@ -19,6 +21,7 @@ typedef struct	s_stack
 }	t_stack;
 
 bool	check_arg(int argc, char **argv);
+bool	check_string(char *argv);
 bool	check_max(char *argv);
 bool	is_number(char c);
 bool	is_white_space(char c);
@@ -32,11 +35,12 @@ void	do_rotate(t_stack *node, t_stack **a, t_stack **b);
 void	do_rev_rotate(t_stack *node, t_stack **a, t_stack **b);
 void	push_back(t_stack **a, t_stack **b);
 void	order_a(t_stack **a);
+void	order_b(t_stack **b);
 void	push(t_stack **a, t_stack **b);
 void	pa(t_stack **a, t_stack **b);
 void	pb(t_stack **a, t_stack **b);
 void	reverse_rotate(t_stack **a);
-t_stack	*get_second_last_node(const t_stack *a);
+t_stack	*get_second_last_node(t_stack *a);
 void	rra(t_stack	**a);
 void	rrb(t_stack **b);
 void	rrr(t_stack **a, t_stack **b);
@@ -52,12 +56,15 @@ void	give_index(t_stack **a);
 int		find_position(t_stack *a, t_stack *target);
 void	sort(t_stack **a, t_stack **b);
 void	sort_algorithm(t_stack **a, t_stack **b);
-int		find_target(t_stack *a, t_stack *b);
+t_stack	*find_target(t_stack *a, t_stack *b);
 void	calculate_cost(t_stack **a, t_stack **b);
-t_stack	*set_cheapest(t_stack **a, t_stack **b);
+t_stack	*set_cheapest(t_stack **a);
 int		set_move(t_stack *current);
 void	split_and_fill(char *argv, t_stack **a);
+char	*ft_strdup(const char *s);
 int		ft_strlen(const char *s);
+char	*ft_strtok(char *s, char *delim);
+char	*ft_strchr(const char *str, int c);
 void	add_node_to_stack(t_stack **a, t_stack *node);
 int		ft_atoi(const char *argv);
 void	swap(t_stack **a);

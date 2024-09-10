@@ -4,10 +4,10 @@ void	push(t_stack **a, t_stack **b)
 {
 		t_stack	*old_a;
 
-		if (!a || !*a)
+		if (*a == NULL)
 			return ;
 		old_a = *a;
-		*a = *a->next;
+		*a = (*a)->next;
 		old_a->next = *b;
 		*b = old_a;
 }

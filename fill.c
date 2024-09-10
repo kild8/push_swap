@@ -20,7 +20,7 @@ void	fill(int argc, char **argv, t_stack **a)
 	{
 		node = initiate_node(ft_atoi(argv[i]));
 		if (!node)
-			free_and_exit(*a, NULL, 1);
+			free_and_exit(a, NULL, 1);
 		last->next = node;
 		last = node;
 		i++;

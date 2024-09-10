@@ -2,27 +2,29 @@
 
 void	free_and_exit(t_stack **a, t_stack **b, int code)
 {
-	t_stack *current;
-	t_stack	*next;
+	t_stack *temp;
 
-	current = *a;
-	next = NULL;
-	while (current != NULL)
+	if (a != NULL)
 	{
-		next = current->next;
-		free(current);
-		current = next;
+		while (*a != NULL)
+		{
+			temp = *a;
+			*a = (*a)->next;
+			free(temp);
+		}
 	}
-	current = *b;
-	while (current != NULL)
+	if (b != NULL)
 	{
-		next = current->next;
-		free(current);
-		current = next;
+		while (*b != NULL)
+		{
+			temp = *b;
+			*b = (*b)->next;
+			free(temp);
+		}
 	}
 	if (code == 1)
 	{
-		write(1, "Error\n", 6);
+		write(2, "Error\n", 6);
 		exit(EXIT_FAILURE);
 	}
 	exit(EXIT_SUCCESS);

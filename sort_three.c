@@ -2,7 +2,7 @@
 
 void	sort_three(t_stack **a)
 {
-	t_stack	biggest_node;
+	t_stack	*biggest_node;
 
 	biggest_node = get_biggest_node(*a);
 	if (biggest_node == *a)

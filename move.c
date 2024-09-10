@@ -6,6 +6,7 @@ void	move(t_stack *node, t_stack **a, t_stack **b)
 		do_rotate(node, a, b);
 	else if (node->do_rr == 1)
 		do_rev_rotate(node, a, b);
+	pb(a, b);
 }
 
 void	do_rotate(t_stack *node, t_stack **a, t_stack **b)

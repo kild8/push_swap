@@ -14,7 +14,7 @@ void	reverse_rotate(t_stack **a)
 	*a = last;
 }
 
-t_stack	*get_second_last_node(const t_stack *a)
+t_stack	*get_second_last_node(t_stack *a)
 {
 	t_stack	*current;
 
@@ -28,20 +28,20 @@ t_stack	*get_second_last_node(const t_stack *a)
 
 void	rra(t_stack	**a)
 {
-	rotate(a);
+	reverse_rotate(a);
 	write(1, "rra\n", 4);
 }
 
 void	rrb(t_stack **b)
 {
-	rotate(b);
+	reverse_rotate(b);
 	write(1, "rrb\n", 4);
 
 }
 
 void	rrr(t_stack **a, t_stack **b)
 {
-	rotate(a);
-	rotate(b);
+	reverse_rotate(a);
+	reverse_rotate(b);
 	write(1, "rrr\n", 4);
 }

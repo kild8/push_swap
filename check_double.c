@@ -7,6 +7,8 @@ void	check_double(t_stack **a)
 	int		current_value;
 	int		comp_value;
 
+	if (!*a || !(*a)->next)
+		return ;
 	current	= *a;
 	comp = (*a)->next;
 	current_value = current->value;

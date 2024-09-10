@@ -5,7 +5,7 @@ void	rotate(t_stack **a)
 	t_stack *top;
 	t_stack *last;
 
-	if (a == NULL || *a == NULL || *a->next == NULL)
+	if (a == NULL || *a == NULL || (*a)->next == NULL)
 		return ;
 	top = *a;
 	last = get_last_node(*a);
