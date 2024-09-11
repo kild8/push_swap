@@ -20,3 +20,20 @@ bool	is_sign(char c)
 		return (true);
 	return (false);
 }
+
+bool	is_sorted(t_stack **a)
+{
+	t_stack	*current;
+
+	current = *a;
+	while (current)
+	{
+		if (current->next)
+		{
+			if (current->value > current->next->value)
+				return (false);
+		}
+		current = current->next;
+	}
+	return (true);
+}

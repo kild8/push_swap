@@ -42,7 +42,7 @@ void	do_rev_rotate(t_stack *node, t_stack **a, t_stack **b)
 			rra(a);
 			node->rr--;
 		}
-	while(node->rb > 0)
+	while(node->rrb > 0)
 		{
 			rrb(b);
 			node->rrb--;

@@ -2,8 +2,7 @@ NAME = push_swap
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -g
 
-SRC = 	check_arg.c \
-		check_double.c \
+SRC = 	check_double.c \
 		check_utils.c \
 		fill.c \
 		free_and_exit.c \

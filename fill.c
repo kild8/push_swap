@@ -11,14 +11,14 @@ void	fill(int argc, char **argv, t_stack **a)
 	node = malloc(sizeof(t_stack));
 	if (!node)
 		free_and_exit(NULL, NULL, 1);
-	node->value = ft_atoi(argv[i]);
+	node->value = ft_atoi(argv[i], a);
 	node->next = NULL;
 	*a = node;
 	last = node;
 	i++;
 	while (i < argc)
 	{
-		node = initiate_node(ft_atoi(argv[i]));
+		node = initiate_node(ft_atoi(argv[i], a));
 		if (!node)
 			free_and_exit(a, NULL, 1);
 		last->next = node;

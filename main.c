@@ -8,7 +8,8 @@ int	main(int argc, char **argv)
 	a = NULL;
 	b = NULL;
 
-	check_arg(argc, argv);
+	if (argc == 1)
+		free_and_exit(NULL, NULL, 1);
 	if (argc == 2)
 		split_and_fill(argv[1], &a);
 	else if (argc > 2)

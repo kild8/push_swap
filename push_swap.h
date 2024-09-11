@@ -20,12 +20,10 @@ typedef struct	s_stack
 	struct s_stack	*next;
 }	t_stack;
 
-bool	check_arg(int argc, char **argv);
-bool	check_string(char *argv);
-bool	check_max(char *argv);
 bool	is_number(char c);
 bool	is_white_space(char c);
 bool	is_sign(char c);
+bool	is_sorted(t_stack **a);
 void	check_double(t_stack **a);
 void	fill(int argc, char **argv, t_stack **a);
 t_stack	*initiate_node(int value);
@@ -61,12 +59,9 @@ void	calculate_cost(t_stack **a, t_stack **b);
 t_stack	*set_cheapest(t_stack **a);
 int		set_move(t_stack *current);
 void	split_and_fill(char *argv, t_stack **a);
-char	*ft_strdup(const char *s);
-int		ft_strlen(const char *s);
-char	*ft_strtok(char *s, char *delim);
-char	*ft_strchr(const char *str, int c);
+void	convert(char *str, t_stack **a);
 void	add_node_to_stack(t_stack **a, t_stack *node);
-int		ft_atoi(const char *argv);
+int		ft_atoi(const char *argv, t_stack **a);
 void	swap(t_stack **a);
 void	sa(t_stack **a);
 void	sb(t_stack **a);

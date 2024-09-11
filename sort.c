@@ -2,7 +2,7 @@
 
 void	sort(t_stack **a, t_stack **b)
 {
-	if (stack_length(*a) == 1)
+	if (is_sorted(a))
 		free_and_exit(a, b, 0);
 	if (stack_length(*a) == 2)
 	{
